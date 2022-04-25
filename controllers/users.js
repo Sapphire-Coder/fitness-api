@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
 
     try{
         if(await bcrypt.compare(req.body.password, user.password)){
-            const id = { user: username._id }
+            const id = { user: user._id }
             const accessToken = jwt.sign(id, process.env.ACCESS_TOKEN_SECRET)
             return res.json({ accessToken: accessToken })
         }
