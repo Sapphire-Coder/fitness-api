@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/users')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const authenticateToken = require('../auth/authenticateToken')
 
 // Index (testing purposes only)
 router.get('/', (req, res) => {
@@ -46,6 +47,13 @@ router.post('/login', async (req, res) => {
     catch{
         return res.status(500).send()
     }
+})
+
+// Show
+router.get('/:id', authenticateToken, (req, res) => {
+    User.findById(req.params.id, (err, foundUser) => {
+        res.json(foundUser)
+    })
 })
 
 module.exports = router
