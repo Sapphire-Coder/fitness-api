@@ -5,7 +5,7 @@ const workoutSchema = new mongoose.Schema({
     reps: { type: Number, required: true },
     sets: { type: Number, required: true},
     calories: { type: Number, required: true},
-    user: { required: true }
+    user: { type: String, required: true }
 })
 
 const Workout = mongoose.model('Workout', workoutSchema)
