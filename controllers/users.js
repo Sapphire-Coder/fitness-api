@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
             return res.json({ accessToken: accessToken })
         }
         else{
-            return res.status(500).send()
+            return res.status(400).send()
         }
     }
     catch{
@@ -50,10 +50,9 @@ router.post('/login', async (req, res) => {
 })
 
 // Show
-router.get('/:id', authenticateToken, (req, res) => {
-    User.findById(req.params.id, (err, foundUser) => {
-        res.json(foundUser)
-    })
+router.get('/user', authenticateToken, async (req, res) => {
+    const user = await User.findById(req.user).select('-password')
+    res.json(user)
 })
 
 module.exports = router
