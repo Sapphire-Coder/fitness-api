@@ -29,8 +29,7 @@ router.post('/', authenticateToken, async (req, res) => {
     const post = await Post.create({
         title: req.body.title,
         content: req.body.content,
-        user: req.user._id,
-        comments: []
+        user: req.user._id
     })
     res.json(post)
 })

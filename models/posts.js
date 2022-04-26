@@ -1,15 +1,9 @@
 const mongoose = require('mongoose')
 
-const commentSchema = new mongoose.Schema({
-    username: { type: String, required: true },
-    comment: { type: String, required: true}
-})
-
 const postSchema = new mongoose.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
-    user: { type: String, required: true },
-    comments: [commentSchema]
+    user: { type: String, required: true }
 })
 
 const Post = mongoose.model('Post', postSchema)

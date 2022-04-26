@@ -18,6 +18,8 @@ const workoutsController = require('./controllers/workouts')
 app.use('/workouts', workoutsController)
 const postsController = require('./controllers/posts')
 app.use('/posts', postsController)
+const commentsController = require('./controllers/comments')
+app.use('/comments', commentsController)
 
 mongoose.connect(mongoURI, { useNewUrlParser: true }, () => {
     console.log('MongoDB connected')
