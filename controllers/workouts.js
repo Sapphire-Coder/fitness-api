@@ -25,10 +25,13 @@ router.put('/:id', authenticateToken, (req, res) => {
 })
 
 // Create
-router.post('/', authenticateToken, (req, res) => {
-    Workout.create(req.body, (err, createdWorkout) => {
-        res.json(createdWorkout)
+router.post('/', authenticateToken, async (req, res) => {
+    const workout = await Workout.create({
+        exercises: req.body.exercises,
+        calories: req.body.calories,
+        user: req.user._id
     })
+    res.json(workout)
 })
 
 // Show
