@@ -4,10 +4,9 @@ const Workout = require('../models/workouts')
 const authenticateToken = require('../auth/authenticateToken')
 
 // Index
-router.get('/', authenticateToken ,(req, res) => {
-    Workout.find({}, (err, foundWorkouts) => {
-        res.json(foundWorkouts)
-    })
+router.get('/', authenticateToken, async (req, res) => {
+    const workouts = await Workout.find({ user: req.user._id })
+    res.json(workouts)
 })
 
 // Delete
