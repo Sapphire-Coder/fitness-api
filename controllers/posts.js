@@ -11,7 +11,7 @@ router.get('/', authenticateToken, (req, res) => {
 })
 
 // Delete
-router.delete('/', authenticateToken, (req, res) => {
+router.delete('/:id', authenticateToken, (req, res) => {
     Post.findByIdAndRemove(req.params.id, (err, deletedPost) => {
         res.json(deletedPost)
     })

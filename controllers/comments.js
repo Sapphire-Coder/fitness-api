@@ -18,11 +18,11 @@ router.delete('/:id', authenticateToken, (req, res) => {
 })
 
 // Update
-router.put('/:id', authenticateToken, (req, res) => {
-    Comment.findByIdAndUpdate(req.params.id, req.body, { new:true }, (err, updatedComment) => {
-        res.json(updatedComment)
-    })
-})
+// router.put('/:id', authenticateToken, (req, res) => {
+//     Comment.findByIdAndUpdate(req.params.id, req.body, { new:true }, (err, updatedComment) => {
+//         res.json(updatedComment)
+//     })
+// })
 
 // Create
 router.post('/', authenticateToken, async (req, res) => {
