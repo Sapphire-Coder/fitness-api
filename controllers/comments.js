@@ -11,7 +11,7 @@ router.get('/:id', authenticateToken, (req, res) => {
 })
 
 // Delete
-router.delete('/', authenticateToken, (req, res) => {
+router.delete('/:id', authenticateToken, (req, res) => {
     Comment.findByIdAndRemove(req.params.id, (err, deletedComment) => {
         res.json(deletedComment)
     })
