@@ -17,13 +17,6 @@ router.delete('/:id', authenticateToken, (req, res) => {
     })
 })
 
-// Update
-// router.put('/:id', authenticateToken, (req, res) => {
-//     Comment.findByIdAndUpdate(req.params.id, req.body, { new:true }, (err, updatedComment) => {
-//         res.json(updatedComment)
-//     })
-// })
-
 // Create
 router.post('/', authenticateToken, async (req, res) => {
     const comment = await Comment.create({
@@ -34,12 +27,5 @@ router.post('/', authenticateToken, async (req, res) => {
     })
     res.json(comment)
 })
-
-// Show
-// router.get('/:id', authenticateToken, (req, res) => {
-//     Comment.findById(req.params.id, (err, foundComment) => {
-//         res.json(foundComment)
-//     })
-// })
 
 module.exports = router
