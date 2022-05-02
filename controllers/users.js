@@ -5,13 +5,6 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const authenticateToken = require('../auth/authenticateToken')
 
-// Index (testing purposes only)
-router.get('/', (req, res) => {
-    User.find({}, (err, foundUsers) => {
-        res.json(foundUsers)
-    })
-})
-
 // Create
 router.post('/', async (req, res) => {   
     try {
